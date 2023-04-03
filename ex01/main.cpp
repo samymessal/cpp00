@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:01:20 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 16:54:11 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/03 18:44:30 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int main(void)
     std::string command;
 
     print(0);
-    command = "start";
-    while (command.compare("EXIT"))
+    while (1)
     {
         std::cin >> command;
         if (!command.compare("ADD"))
@@ -41,6 +40,11 @@ int main(void)
         else if (!command.compare("SEARCH"))
         {
             My_rep.search();       
+        }
+        else if (!command.compare("EXIT"))
+        {
+            std::cout << "Exiting the program" <<std::endl;
+            break ;
         }
         else
         {

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:49:30 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 16:55:21 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/03 19:21:46 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int PhoneBook::older(void) const
     i = 0;
     while (i < this->getmax())
     {
-        if (this->Repertory[i].index == this->getmax() - 1)
+        if (this->Repertory[i].index == 0)
             return (i);
         i++;
     }
@@ -49,11 +49,25 @@ void    PhoneBook::maj_index(void)
     i = 0;
     while (i < this->getmax())
     {
-        this->Repertory[i].index++;
+        this->Repertory[i].index--;
         i++;
     }
     return ;
 };
+
+int     PhoneBook::get_index(int find) const
+{
+    int i;
+
+    i = 0;
+    while (i < this->len)
+    {
+        if (this->Repertory[i].index == find)
+            return (i);
+        i++;
+    }
+    return (0);
+}
 
 void    PhoneBook::add(void)
 {
@@ -84,7 +98,7 @@ void    PhoneBook::add(void)
     }
     else if (this->len == this->getmax())
     {
-        this->Repertory[this->older()].fill(-1, first, last, nname,
+        this->Repertory[this->older()].fill(8, first, last, nname,
             mobile, phrase);
         this->maj_index();
     }
@@ -109,11 +123,20 @@ void    PhoneBook::search(void) const
     {
         std::cout << std::setw(10) << std::right << this->Repertory[i].index;
         std::cout << " | ";
-        std::cout << std::setw(10) << std::right << this->Repertory[i].fname;
+        if (this->Repertory[i].fname.length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].fname.substr(0, 9) << ".";
+        else
+            std::cout << std::setw(10) << std::right << this->Repertory[i].fname;
         std::cout << " | ";
-        std::cout << std::setw(10) << std::right << this->Repertory[i].lname;
+        if (this->Repertory[i].lname.length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].lname.substr(0, 9) << ".";
+        else
+            std::cout << std::setw(10) << std::right << this->Repertory[i].lname;   
         std::cout << " | ";
-        std::cout << std::setw(10) << std::right << this->Repertory[i].nick;
+        if (this->Repertory[i].nick.length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].nick.substr(0, 9) << ".";
+        else
+            std::cout << std::setw(10) << std::right << this->Repertory[i].nick;
         std::cout << std::endl;
         i++;
         
@@ -124,10 +147,10 @@ void    PhoneBook::search(void) const
         std::cout << "Unvalid index" << std::endl;
     else
     {
-        std::cout << "First Name: " << this->Repertory[index].fname << std::endl;
-        std::cout << "Last Name: " << this->Repertory[index].lname << std::endl;
-        std::cout << "Nickname: " << this->Repertory[index].nick << std::endl;
-        std::cout << "Phone Number: " << this->Repertory[index].phone << std::endl;
-        std::cout << "Secret: " << this->Repertory[index].secret << std::endl;
+        std::cout << "First Name: " << this->Repertory[this->get_index(index)].fname << std::endl;
+        std::cout << "Last Name: " << this->Repertory[this->get_index(index)].lname << std::endl;
+        std::cout << "Nickname: " << this->Repertory[this->get_index(index)].nick << std::endl;
+        std::cout << "Phone Number: " << this->Repertory[this->get_index(index)].phone << std::endl;
+        std::cout << "Secret: " << this->Repertory[this->get_index(index)].secret << std::endl;
     }
 }
