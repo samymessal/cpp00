@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 20:19:26 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 21:05:38 by smessal          ###   ########.fr       */
+/*   Created: 2023/04/03 20:19:14 by smessal           #+#    #+#             */
+/*   Updated: 2023/04/03 21:06:14 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Zombie.hpp"
 
-#include <iostream>
-class   Zombie
+Zombie::Zombie(void)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(void);
-        Zombie(std::string nom);
-        ~Zombie(void);
-        void    announce(void) const;
+    return ;
+}
+
+Zombie::Zombie(std::string nom) : name(nom)
+{
+    return ;
+}
+
+Zombie::~Zombie(void)
+{
+    std::cout << this->name <<" is gone"<< std::endl;
+}
+
+void    Zombie::fill(std::string filler)
+{
+    this->name = filler;
+    return ;
 };
 
-#endif
+void    Zombie::announce(void) const
+{
+    std::cout << this->name <<std::endl;
+};
