@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 23:02:31 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/04 23:57:58 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/06 17:20:29 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,26 +44,33 @@ int main(int ac, char **av)
 				i = 0;
 				while (line[i])
 				{
-					if (!line.compare(i, 1, s1, 0, 1))
+					if (!line.compare(i, s1.length(), s1))
 					{
-						if (!line.compare(i, s1.length(), s1, 0, s1.length()))
-						{
-							replace << s2;
-							i += s1.length();
-						}
+						replace << s2;
+						i += s1.length();
 					}
 					else
 					{
-						replace << line.substr(i, i + 1);
+						replace << line[i];
 						i++;
 					}
 				}
 				replace << std::endl;
 			}
+			else
+			{
+				std::cout << "Could not open replace file" <<std::endl;
+				origin.close();
+				return (1);
+			}
         }
     }
-    std::cout << line;
-    origin.close();
+	else
+	{
+		std::cout << "Could not open file" << std::endl;
+		return (1);
+	}
+	origin.close();
 	replace.close();
     return (0);
     

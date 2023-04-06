@@ -6,11 +6,11 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 21:30:29 by smessal           #+#    #+#              #
-#    Updated: 2023/04/04 22:48:58 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/06 17:26:17 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	war
+NAME		=	sed
 
 SRC			=	main.cpp
 
@@ -20,9 +20,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o war
+EXE_NAME	=	-o sed
 
-EXEC		=	war
+EXEC		=	sed
 
 
 all: $(NAME)
