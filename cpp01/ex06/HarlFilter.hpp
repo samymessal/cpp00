@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 12:07:46 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/07 12:29:30 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/07 15:26:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class HarlFilter
         void	info( void ) const;
         void	warning( void ) const;
         void	error( void ) const;
+        int     convert_to_int(std::string level) const;
     public:
         HarlFilter(void);
         ~HarlFilter(void);
