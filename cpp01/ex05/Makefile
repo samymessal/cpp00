@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 21:30:29 by smessal           #+#    #+#              #
-#    Updated: 2023/04/06 17:26:17 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/07 11:24:37 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	harl
 
-SRC			=	main.cpp
+SRC			=	main.cpp Harl.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
