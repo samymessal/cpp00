@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 14:19:37 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 15:00:06 by smessal          ###   ########.fr       */
+/*   Created: 2023/04/15 16:31:08 by smessal           #+#    #+#             */
+/*   Updated: 2023/04/15 18:07:08 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-#define CONTACT_H
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include "PhoneBook.class.hpp"
+#include <iostream>
 
-class Contact
+class   Fixed
 {
+    private:
+        int                 num;
+        static const int    fract = 8;
+    
     public:
-        Contact(void);
-        ~Contact(void);
-        int		index;
-		std::string	fname;
-		std::string	lname;
-		std::string	nick;
-		std::string phone;
-		std::string secret;
-        void    fill(int ind, std::string first, std::string last,
-                    std::string nname, std::string mobile, std::string phrase);
-
+        Fixed(void);
+        ~Fixed(void);
+        Fixed(const Fixed &cpy);
+        Fixed operator=(const Fixed& other);
+        int     getRawBits(void) const;
+        void    setRawBits(int const raw);
 };
 
 #endif

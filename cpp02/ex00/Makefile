@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:21:32 by smessal           #+#    #+#              #
-#    Updated: 2023/03/25 13:21:34 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/15 17:31:26 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME		=	canon
 
-SRC			=	megaphone.cpp
+SRC			=	main.cpp Fixed.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -20,9 +20,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o megaphone
+EXE_NAME	=	-o canon
 
-EXEC		=	megaphone
+EXEC		=	canon
 
 
 all: $(NAME)
