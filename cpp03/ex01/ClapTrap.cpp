@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:57:57 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 20:22:56 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/16 21:11:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap(void) : _name(""), _hit(10), _ener(10), _atta(0)
 {
-    std::cout << "clapTrap default constructor called" << std::endl;
+    std::cout << "ClapTrap default constructor called" << std::endl;
     return ;
 }
 

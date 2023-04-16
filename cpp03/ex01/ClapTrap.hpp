@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:52:23 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 20:20:17 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/16 20:29:39 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string _name;
         int         _hit;
         unsigned int         _ener;
