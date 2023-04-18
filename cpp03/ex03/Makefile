@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:21:32 by smessal           #+#    #+#              #
-#    Updated: 2023/04/16 22:41:38 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/18 14:56:43 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	DiamondTrap
 
-SRC			=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
+SRC			=	ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp 
 
 OBJS		=	$(SRC:.cpp=.o)
 
