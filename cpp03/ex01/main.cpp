@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 19:25:45 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 21:11:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/18 15:30:59 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(void)
 {
     ClapTrap    test1("first");
     // ClapTrap    test2("second");
-    ScavTrap    test3;
+    ScavTrap    test3("two");
     // ClapTrap    test4(test2);
     
     test3.attack("junior");

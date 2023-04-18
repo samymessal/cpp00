@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 22:28:16 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/18 14:51:37 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/18 15:29:37 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
 {
     std::cout << "DiamondTrap default constructor has been called" << std::endl;
 	this->name = "";
-	this->_name = ScavTrap::_name;
+	this->_name = "_clap_name";
 	this->_hit = FragTrap::_hit;
-	this->_ener = ScavTrap::_hit;
-	this->_atta = FragTrap::hit;
-	this->attack = ScavTrap::attack;
+	this->_ener = ScavTrap::_ener;
+	this->_atta = FragTrap::_atta;
     return ;
 }
 
@@ -28,11 +27,10 @@ DiamondTrap::DiamondTrap(std::string init_name) : ScavTrap(init_name + "_clap_na
                                                 FragTrap(init_name + "_clap_name") \
 {
     this->name = init_name;
-	this->_name = ScavTrap::_name;
+	this->_name = init_name + "_clap_name";
 	this->_hit = FragTrap::_hit;
-	this->_ener = ScavTrap::_hit;
-	this->_atta = FragTrap::hit;
-	this->attack = ScavTrap::attack;
+	this->_ener = ScavTrap::_ener;
+	this->_atta = FragTrap::_atta;
 	std::cout << "DiamondTrap constructor initialized name" << std::endl;
     return ;
 }
