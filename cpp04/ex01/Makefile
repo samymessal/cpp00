@@ -6,13 +6,14 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 18:25:28 by smessal           #+#    #+#              #
-#    Updated: 2023/04/20 18:25:29 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/22 12:21:48 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Animal
 
-SRC			=	Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp main.cpp 
+SRC			=	Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp \
+				Brain.cpp main.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 
