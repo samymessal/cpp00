@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:22:31 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 19:20:54 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:31:23 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 
 # include <iostream>
 # include <iomanip>
+# include <cctype>
+# include <limits>
 # include "Contact.class.hpp"
 
 class PhoneBook
 {
-    int max;
-    public:
+    private:
+        int max;
         int len;
+        Contact Repertory[8];
+    public:
         PhoneBook(void);
         ~PhoneBook(void);
         void    search(void) const;
@@ -30,7 +34,6 @@ class PhoneBook
         int     get_index(int find) const;
 		void	maj_index(void);
 		void	add(void);
-        class Contact Repertory[8];
 };
 
 void    print(int num);

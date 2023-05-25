@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:01:20 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 18:44:30 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/25 19:09:40 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ int main(void)
     print(0);
     while (1)
     {
-        std::cin >> command;
+        if (!std::getline(std::cin , command))
+        {
+            std::cout << "Bad input" << std::endl;
+            return (0);
+        }
         if (!command.compare("ADD"))
         {
             My_rep.add();

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:49:30 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 19:21:46 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/25 19:07:06 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int PhoneBook::older(void) const
     i = 0;
     while (i < this->getmax())
     {
-        if (this->Repertory[i].index == 0)
+        if (this->Repertory[i].get_index()== 0)
             return (i);
         i++;
     }
@@ -49,7 +49,7 @@ void    PhoneBook::maj_index(void)
     i = 0;
     while (i < this->getmax())
     {
-        this->Repertory[i].index--;
+        this->Repertory[i].change_index(-1);
         i++;
     }
     return ;
@@ -62,7 +62,7 @@ int     PhoneBook::get_index(int find) const
     i = 0;
     while (i < this->len)
     {
-        if (this->Repertory[i].index == find)
+        if (this->Repertory[i].get_index()== find)
             return (i);
         i++;
     }
@@ -79,17 +79,21 @@ void    PhoneBook::add(void)
     
     std::cout << "You can now enter, one by one the required fields" << std::endl;
     std::cout << "Enter the First Name: ";
-    std::cin >> first;
+    if (!std::getline(std::cin , first))
+        return ;
     std::cout << "Last Name: ";
-    std::cin >> last;
+    if (!std::getline(std::cin , last))
+        return ;
     std::cout << "Nick Name: ";
-    std::cin >> nname;
+    if (!std::getline(std::cin , nname))
+        return ;
     std::cout << "Phone Number: ";
-    std::cin >> mobile;
+    if (!std::getline(std::cin , mobile))
+        return ;
     std::cout << "Secret: ";
-    std::cin >> phrase;
+    if (!std::getline(std::cin , phrase))
+        return ;
     std::cout << "Your contact was succesfully saved" << std::endl;
-    print(1);
     if (this->len < this->getmax())
     {
         this->Repertory[this->len].fill(this->len, first, last, nname,
@@ -121,36 +125,46 @@ void    PhoneBook::search(void) const
     std::cout << std::setw(10) << std::right << "Nickname" << std::endl;
     while (i < this->len)
     {
-        std::cout << std::setw(10) << std::right << this->Repertory[i].index;
+        std::cout << std::setw(10) << std::right << this->Repertory[i].get_index();
         std::cout << " | ";
-        if (this->Repertory[i].fname.length() > 10)
-            std::cout << std::setw(9) << std::right << this->Repertory[i].fname.substr(0, 9) << ".";
+        if (this->Repertory[i].get_fname().length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].get_fname().substr(0, 9) << ".";
         else
-            std::cout << std::setw(10) << std::right << this->Repertory[i].fname;
+            std::cout << std::setw(10) << std::right << this->Repertory[i].get_fname();
         std::cout << " | ";
-        if (this->Repertory[i].lname.length() > 10)
-            std::cout << std::setw(9) << std::right << this->Repertory[i].lname.substr(0, 9) << ".";
+        if (this->Repertory[i].get_lname().length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].get_lname().substr(0, 9) << ".";
         else
-            std::cout << std::setw(10) << std::right << this->Repertory[i].lname;   
+            std::cout << std::setw(10) << std::right << this->Repertory[i].get_lname();   
         std::cout << " | ";
-        if (this->Repertory[i].nick.length() > 10)
-            std::cout << std::setw(9) << std::right << this->Repertory[i].nick.substr(0, 9) << ".";
+        if (this->Repertory[i].get_nick().length() > 10)
+            std::cout << std::setw(9) << std::right << this->Repertory[i].get_nick().substr(0, 9) << ".";
         else
-            std::cout << std::setw(10) << std::right << this->Repertory[i].nick;
+            std::cout << std::setw(10) << std::right << this->Repertory[i].get_nick();
         std::cout << std::endl;
         i++;
         
     }
     std::cout << "Select a contact by entering its index: " << std::endl;
-    std::cin >> index;
-    if (index >= this->len || index < 0)
-        std::cout << "Unvalid index" << std::endl;
+    if (!(std::cin >> index))
+    {
+        std::cout << "Bad input" << std::endl;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    else if (index >= this->len || index < 0)
+    {
+       std::cout << "Unvalid index" << std::endl;
+       std::cin.clear();
+       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    } 
     else
     {
-        std::cout << "First Name: " << this->Repertory[this->get_index(index)].fname << std::endl;
-        std::cout << "Last Name: " << this->Repertory[this->get_index(index)].lname << std::endl;
-        std::cout << "Nickname: " << this->Repertory[this->get_index(index)].nick << std::endl;
-        std::cout << "Phone Number: " << this->Repertory[this->get_index(index)].phone << std::endl;
-        std::cout << "Secret: " << this->Repertory[this->get_index(index)].secret << std::endl;
+        std::cout << "First Name: " << this->Repertory[this->get_index(index)].get_fname() << std::endl;
+        std::cout << "Last Name: " << this->Repertory[this->get_index(index)].get_lname() << std::endl;
+        std::cout << "Nickname: " << this->Repertory[this->get_index(index)].get_nick() << std::endl;
+        std::cout << "Phone Number: " << this->Repertory[this->get_index(index)].get_phone() << std::endl;
+        std::cout << "Secret: " << this->Repertory[this->get_index(index)].get_secret() << std::endl;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
