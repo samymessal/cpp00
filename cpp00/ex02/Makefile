@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 19:48:43 by smessal           #+#    #+#              #
-#    Updated: 2023/04/03 19:51:46 by smessal          ###   ########.fr        #
+#    Updated: 2023/05/25 17:50:02 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	account
 
-SRC			=	tests.cpp
+SRC			=	tests.cpp Account.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
