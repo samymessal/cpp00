@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 10:08:14 by smessal           #+#    #+#             */
-/*   Updated: 2023/05/25 17:55:59 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:22:34 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Account::Account( int initial_deposit ) : _accountIndex(_nbAccounts), _amount(in
 											_nbWithdrawals(0)
 {
 	_displayTimestamp();
-	std::cout << " index:" << _accountIndex << ";amount:" << _amount << "created" << std::endl;
+	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 	_nbAccounts++;
 	_totalAmount += _amount;
 	return ;
@@ -44,25 +44,38 @@ int Account::_totalNbWithdrawals = 0;
 
 void	Account::makeDeposit(int deposit)
 {
+	int	p_amount;
+
+	p_amount = _amount;
 	_amount += deposit;
 	_nbDeposits++;
 	_totalNbDeposits++;
 	_totalAmount += deposit;
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";p_amount:" << p_amount << ";deposit:" << deposit << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
 	return ;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+	int	p_amount;
+
+	p_amount = _amount;
+	_displayTimestamp();
 	if (withdrawal <= _amount)
 	{
 		_amount -= withdrawal;
 		_nbWithdrawals++;
 		_totalNbWithdrawals++;
 		_totalAmount -= withdrawal;
+		std::cout << " index:" << _accountIndex << ";p_amount:" << p_amount << ";withdrawal:" << withdrawal << ";amount:" << _amount << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 		return (1);
 	}
 	else
+	{
+		std::cout << " index:" << _accountIndex << ";p_amount:" << p_amount << ";withdrawal:refused" << std::endl;
 		return (0);
+	}
 }
 
 int		Account::checkAmount(void) const
