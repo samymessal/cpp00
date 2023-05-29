@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:33:26 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 23:09:24 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/29 14:46:15 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class Weapon
 {
     private:
-        std::string type;
+        std::string *_type;
     public:
         Weapon(std::string weapon);
         Weapon(void);
         ~Weapon(void);
+        Weapon operator=(const Weapon &equal);
         const std::string &getType(void) const;
         void              setType(std::string set);
 };

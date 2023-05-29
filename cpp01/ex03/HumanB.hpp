@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 22:26:20 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 22:43:21 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/29 14:30:03 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class HumanB
 {
     private:
-        std::string arme;
-        std::string name;
+        Weapon      &_arme;
+        std::string _name;
     public:
         HumanB(std::string id);
         ~HumanB(void);

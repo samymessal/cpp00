@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 22:03:03 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 23:26:20 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/29 14:30:00 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class HumanA
 {
     private:
-        std::string arme;
-        std::string name;
+        Weapon      &_arme;
+        std::string _name;
     public:
         HumanA(std::string id, Weapon weapon);
         ~HumanA(void);
