@@ -6,17 +6,17 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 20:14:17 by smessal           #+#    #+#              #
-#    Updated: 2023/04/03 20:42:19 by smessal          ###   ########.fr        #
+#    Updated: 2023/05/30 13:56:28 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	apo
 
-SRC			=	Zombie.cpp main.cpp
+SRC			=	Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	clang++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

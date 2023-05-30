@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 20:29:57 by smessal           #+#    #+#             */
-/*   Updated: 2023/05/29 13:09:32 by smessal          ###   ########.fr       */
+/*   Created: 2023/05/29 13:43:52 by smessal           #+#    #+#             */
+/*   Updated: 2023/05/29 13:44:02 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main(void)
+void    randomChump(std::string name)
 {
-    Zombie  *test;
-
-    test = newZombie("lol");
-    test->announce();
-    randomChump("Tes fou");
-    delete test;
+    Zombie  rzombie(name);
+    
+    rzombie.announce();
+    return ;
 }
