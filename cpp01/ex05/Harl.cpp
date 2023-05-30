@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:28:55 by smessal           #+#    #+#             */
-/*   Updated: 2023/05/30 13:45:05 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:27:45 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,17 @@ void	Harl::error(void) const
 
 void	Harl::complain(std::string level) const
 {
-	void	(Harl::*ptr)(void) const;
+	typedef void	(Harl::*ptr)(void) const;
+	ptr				array_ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string		array_str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
-	if (level == "DEBUG")
+	for (int i = 0; i < 4; i++)
 	{
-		ptr = &Harl::debug;
+		if (!array_str[i].compare(level))
+		{
+			(this->*(array_ptr[i]))();
+			return ;
+		}
 	}
-	else if (level == "INFO")
-	{
-		ptr = &Harl::info;
-	}
-	else if (level == "WARNING")
-	{
-		ptr = &Harl::warning;
-	}
-	else if (level == "ERROR")
-	{
-		ptr = &Harl::error;
-	}
-	else
-	{
-		ptr = NULL;
-	}
-	if (ptr)
-		(this->*ptr)();
-	else
-		std::cout << "Not a valid message" << std::endl;
+	std::cout << "Not a valid message" << std::endl;
 }

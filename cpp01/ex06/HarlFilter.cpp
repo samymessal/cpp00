@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 12:07:27 by smessal           #+#    #+#             */
-/*   Updated: 2023/05/30 13:48:17 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:30:25 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,11 @@ void	HarlFilter::complain(std::string level) const
 
 int     HarlFilter::convert_to_int(std::string level) const
 {
-	if (level == "DEBUG")
-		return (0);
-	else if (level == "INFO")
-		return (1);
-	else if (level == "WARNING")
-		return (2);
-	else if (level == "ERROR")
-		return (3);
-	else
-		return (4);
+	std::string	array_str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (!array_str[i].compare(level))
+			return (i);
+	}
+	return (4);
 }
