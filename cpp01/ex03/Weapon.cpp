@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:33:28 by smessal           #+#    #+#             */
-/*   Updated: 2023/05/29 15:01:03 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 12:36:24 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 Weapon::Weapon(void)
 {
-    std::cout << "Default constructor called for Weapon" << std::endl;
-    this->_type = NULL;
+    std::cout << "Default Weapon constructor called" << std::endl;
+    this->_type = "NULL";
     return ;
 }
 
-Weapon::Weapon(std::string set2)
+Weapon::Weapon(std::string set2) : _type(set2)
 {
-    this->_type = new std::string;
-    *this->_type = set2;
     std::cout << "Weapon type set to " << set2 << " by customized constructor" << std::endl;
     return ;
 }
 
 Weapon::~Weapon(void)
 {
-    std::cout << "Default Weapon destructor called" << std::endl;
-    if (this->_type)
-        delete this->_type;
+    std::cout << "Default Weapon destructor called for type: " << _type << std::endl;
+    return ;
+}
+
+Weapon::Weapon(const Weapon &other)
+{
+    this->_type = other.getType();
     return ;
 }
 
@@ -43,12 +45,11 @@ Weapon  Weapon::operator=(const Weapon &equal)
 
 const std::string &Weapon::getType(void) const
 {
-    static const std::string& str = *this->_type;
-    return (str);
+    return (this->_type);
 }
 
 void    Weapon::setType(std::string set3)
 {
-    *this->_type = set3;
+    this->_type = set3;
     return ;
 }

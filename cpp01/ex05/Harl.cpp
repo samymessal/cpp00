@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   harl.cpp                                           :+:      :+:    :+:   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:28:55 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/07 11:34:38 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 13:45:05 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Harl::Harl(void)
 {
+	std::cout << "Default Harl constructor called" << std::endl;
 	return ;
 }
 
 Harl::~Harl(void)
 {
+	std::cout << "Default Harl destructor called" << std::endl;
 	return ;
 }
 
@@ -68,4 +70,6 @@ void	Harl::complain(std::string level) const
 	}
 	if (ptr)
 		(this->*ptr)();
+	else
+		std::cout << "Not a valid message" << std::endl;
 }

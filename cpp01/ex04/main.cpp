@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 23:02:31 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/06 17:20:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 13:39:15 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int main(int ac, char **av)
 	s1 = av[2];
 	s2 = av[3];
 	file_rep = file_origin + ".replace";
-	origin.open(av[1]);
+	origin.open(av[1], std::ios::in);
     if (origin.is_open())
     {
-        replace.open(file_rep, std::ios::trunc);
+        replace.open(file_rep.c_str(), std::ios::trunc);
 		while (getline (origin,line))
         {
 			if (replace.is_open())

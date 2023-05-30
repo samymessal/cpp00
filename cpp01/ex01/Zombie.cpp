@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:19:14 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/03 21:06:14 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/29 13:45:01 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 Zombie::Zombie(void)
 {
+    std::cout << "Default Zombie constructor called" << std::endl;
+    this->_name = "noname";
     return ;
 }
 
-Zombie::Zombie(std::string nom) : name(nom)
+Zombie::Zombie(std::string nom) : _name(nom)
 {
     return ;
 }
 
 Zombie::~Zombie(void)
 {
-    std::cout << this->name <<" is gone"<< std::endl;
+    std::cout << "Default destructor called for " << this->_name << std::endl;
 }
 
 void    Zombie::fill(std::string filler)
 {
-    this->name = filler;
+    this->_name = filler;
     return ;
 };
 
 void    Zombie::announce(void) const
 {
-    std::cout << this->name <<std::endl;
-};
+    std::cout << this->_name << ": BraiiiiiiizzzZ..." <<std::endl;
+}

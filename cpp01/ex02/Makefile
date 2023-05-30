@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 21:11:01 by smessal           #+#    #+#              #
-#    Updated: 2023/04/03 21:12:31 by smessal          ###   ########.fr        #
+#    Updated: 2023/05/30 13:55:34 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC			=	main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	clang++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

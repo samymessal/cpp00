@@ -6,17 +6,17 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 20:14:17 by smessal           #+#    #+#              #
-#    Updated: 2023/04/03 21:09:43 by smessal          ###   ########.fr        #
+#    Updated: 2023/05/30 13:55:48 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	apo2
 
-SRC			=	Zombie.cpp main.cpp
+SRC			=	Zombie.cpp main.cpp zombieHorde.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	clang++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
