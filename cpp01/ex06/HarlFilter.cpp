@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 12:07:27 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/07 15:29:30 by smessal          ###   ########.fr       */
+/*   Updated: 2023/05/30 13:48:17 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 HarlFilter::HarlFilter(void)
 {
+	std::cout << "Default HarlFilter constructor called" << std::endl;
 	return ;
 }
 
 HarlFilter::~HarlFilter(void)
 {
+	std::cout << "Default HarlFilter destructor called" << std::endl;
 	return ;
 }
 
