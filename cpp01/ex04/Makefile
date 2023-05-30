@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 21:30:29 by smessal           #+#    #+#              #
-#    Updated: 2023/05/30 13:54:30 by smessal          ###   ########.fr        #
+#    Updated: 2023/05/30 15:59:14 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	sed
 
-SRC			=	main.cpp
+SRC			=	main2.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
