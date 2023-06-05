@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:56:01 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 19:42:23 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/05 20:52:25 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ class   Fixed
         void    setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
+		static Fixed min(Fixed& first, Fixed& second);
+		static const Fixed		min(const Fixed &first, const Fixed &second);
+		static Fixed max(Fixed& first, Fixed& second);
+		static const Fixed		max(const Fixed &first, const Fixed &second);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& other);

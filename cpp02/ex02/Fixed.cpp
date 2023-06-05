@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:55:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 20:25:51 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/05 20:52:06 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,4 +194,36 @@ int		Fixed::toInt(void) const
 
 	toI = this->_num >> _fract;
 	return (toI);
+}
+
+Fixed	Fixed::min(Fixed& first, Fixed& second)
+{
+	if (first._num <= second._num)
+		return (first);
+	else
+		return (second);
+}
+
+const Fixed	Fixed::min(const Fixed &first, const Fixed &second)
+{
+	if (first._num <= second._num)
+		return (first);
+	else
+		return (second);
+}
+
+Fixed	Fixed::max(Fixed& first, Fixed& second)
+{
+	if (first._num >= second._num)
+		return (first);
+	else
+		return (second);
+}
+
+const Fixed	Fixed::max(const Fixed &first, const Fixed &second)
+{
+	if (first._num >= second._num)
+		return (first);
+	else
+		return (second);
 }
