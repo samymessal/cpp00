@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 10:38:05 by smessal           #+#    #+#              #
-#    Updated: 2023/04/03 19:50:58 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/30 15:24:40 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC			=	main.cpp PhoneBook.class.cpp Contact.class.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	clang++
+COMPILE		=	g++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

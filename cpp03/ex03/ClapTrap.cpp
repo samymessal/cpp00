@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:38:37 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/18 15:38:41 by smessal          ###   ########.fr       */
+/*   Updated: 2023/04/20 17:39:46 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) : _name(other._name), _hit(other._hit)
     return ;
 }
 
-ClapTrap    ClapTrap::operator=(const ClapTrap &equal)
+ClapTrap	ClapTrap::operator=(const ClapTrap &equal)
 {
     this->_name = equal._name;
     this->_hit = equal._hit;

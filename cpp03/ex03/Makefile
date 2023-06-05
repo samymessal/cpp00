@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 15:39:26 by smessal           #+#    #+#              #
-#    Updated: 2023/04/18 15:39:28 by smessal          ###   ########.fr        #
+#    Updated: 2023/04/20 12:09:25 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC			=	ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	clang++
+COMPILE		=	g++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

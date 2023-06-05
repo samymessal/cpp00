@@ -5,25 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/20 18:25:28 by smessal           #+#    #+#              #
-#    Updated: 2023/04/22 16:54:52 by smessal          ###   ########.fr        #
+#    Created: 2023/06/05 13:57:11 by smessal           #+#    #+#              #
+#    Updated: 2023/06/05 13:57:13 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	BrainedAnimal
+NAME		=	canon_2
 
-SRC			=	Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp \
-				Brain.cpp main.cpp \
+SRC			=	main.cpp Fixed.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	g++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o BrainedAnimal
+EXE_NAME	=	-o canon_2
 
-EXEC		=	BrainedAnimal
+EXEC		=	canon_2
 
 
 all: $(NAME)
