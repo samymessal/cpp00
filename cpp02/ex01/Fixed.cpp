@@ -6,14 +6,13 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:55:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 18:09:37 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/06 16:53:11 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 const int	Fixed::_fract = 8;
-
 
 Fixed::Fixed(const int conv) : _num(conv << _fract)
 {
