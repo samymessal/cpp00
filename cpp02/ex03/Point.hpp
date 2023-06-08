@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 21:04:46 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 21:19:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/06 18:03:02 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ class Point
 	public:
 		Point(void);
 		Point(const float x, const float y);
+		Point(const Fixed x, const Fixed y);
 		Point(const Point& other);
 		Point	operator=(const Point &other);
+		Point	operator-(const Point &other);
+		float	operator*(const Point &other);
 		const Fixed&	get_x(void) const;
 		const Fixed&	get_y(void) const;
 		~Point();
