@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:55:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 20:52:06 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/10 14:07:29 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,13 +142,10 @@ Fixed Fixed::operator*(const Fixed& other)
 
 Fixed Fixed::operator/(const Fixed& other)
 {
-	int		temp;
 	float	temp_f;
-	Fixed	fix;
 
-	temp_f = (this->_num / other._num) >> _fract;
-	temp = static_cast<int>(roundf(temp_f));
-	fix.setRawBits(temp);
+	temp_f = (this->toFloat() / other.toFloat());
+	Fixed fix(temp_f);
 	return (fix);
 }
 

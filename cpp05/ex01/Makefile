@@ -5,24 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/05 20:54:58 by smessal           #+#    #+#              #
-#    Updated: 2023/06/10 13:11:54 by smessal          ###   ########.fr        #
+#    Created: 2023/06/10 19:36:48 by smessal           #+#    #+#              #
+#    Updated: 2023/06/10 21:40:17 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	bsp
+NAME		=	Bureaucrat2
 
-SRC			=	main.cpp Fixed.cpp Point.cpp
+SRC			=	Bureaucrat.cpp Form.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	c++
+COMPILE		=	g++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o bsp
+EXE_NAME	=	-o Bureaucrat2
 
-EXEC		=	bsp
+EXEC		=	Bureaucrat2
 
 
 all: $(NAME)
