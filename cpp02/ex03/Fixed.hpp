@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:55:13 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/10 14:16:52 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:45:15 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class   Fixed
         Fixed operator/(const Fixed& other) const;
         Fixed& operator++();
         Fixed operator++(int);
+		Fixed& operator--();
+        Fixed operator--(int);
         int     getRawBits(void) const;
         void    setRawBits(int const raw);
 		float	toFloat(void) const;

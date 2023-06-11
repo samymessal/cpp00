@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:38:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 22:32:39 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:19:21 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ DiamondTrap::~DiamondTrap()
 void	DiamondTrap::whoamI(void)
 {
 	std::cout << "I am Diamond " << this->name << " son of " << this->_name << std::endl;
+	return ;
+}
+
+void    DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
 	return ;
 }

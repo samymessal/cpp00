@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:39:01 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/05 22:32:40 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:15:20 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
         DiamondTrap(const DiamondTrap &cpy);
         DiamondTrap operator=(const DiamondTrap &equal);
 		void	whoamI(void);
+        void    attack(const std::string& target);
         ~DiamondTrap();
 };
 

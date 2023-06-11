@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:55:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/10 14:07:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 16:39:38 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,21 @@ Fixed Fixed::operator++(int)
 	
 	temp.setRawBits(this->_num);
 	this->_num = this->_num + 1;
+	return (temp);
+}
+
+Fixed& Fixed::operator--()
+{
+	this->_num = this->_num - 1;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed	temp;
+	
+	temp.setRawBits(this->_num);
+	this->_num = this->_num - 1;
 	return (temp);
 }
 
