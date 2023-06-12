@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 16:40:10 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 18:03:37 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/11 17:03:01 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/11 17:03:02 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WrongAnimal_HPP
-# define WrongAnimal_HPP
-
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 
-class WrongAnimal
+int	main(void)
 {
-	protected:
-		std::string	_type;
-	public:
-		WrongAnimal(void);
-		WrongAnimal(std::string init_type);
-		WrongAnimal(const WrongAnimal &cpy);
-		WrongAnimal	operator=(const WrongAnimal &equal);
-		~WrongAnimal(void); // add virtual to show
-		void	makeSound(void) const;
-		std::string		getType(void) const;
-};
-
-#endif
+	try
+	{
+		Form	form("send", 86, 80);
+		Bureaucrat	chief("chief", 150);
+		chief.signForm(form);
+		form.beSigned(chief);
+		std::cout << form << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+}

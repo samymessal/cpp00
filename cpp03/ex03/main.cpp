@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:39:20 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 16:29:58 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:31:09 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
     // test3.attack("junior again");
     // test3.highFiveGuys();
 	test4.whoamI();
-    test4.beRepaired(0);
+    test4.beRepaired(100);
     test4.highFiveGuys();
     test4.guardGate();
     test4.takeDamage(100);

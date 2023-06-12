@@ -6,13 +6,13 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:43:38 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/20 17:45:35 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:15:04 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void)
+Animal::Animal(void) : _type("notype")
 {
 	std::cout << "Animal default constructor called" <<std::endl;
 	return ;

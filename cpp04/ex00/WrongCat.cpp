@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:06:25 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/20 18:08:10 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:00:16 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat default constructor called" << std::endl;
 	return ;
+}
+
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other)
+{
+	std::cout << "WrongCat copy constructor called" << std::endl;
+	return ;
+}
+
+WrongCat	&WrongCat::operator=(const WrongCat &other)
+{
+	WrongAnimal::operator=(other);
+	std::cout << "WrongCat assignment overload called" << std::endl;
+	return (*this);
 }
 
 WrongCat::~WrongCat(void)

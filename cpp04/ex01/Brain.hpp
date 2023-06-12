@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:26:06 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/22 14:02:01 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:34:24 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class Brain
 		std::string	*ideas;
 		void	rand_ideas(void);
 	public:
-		Brain(const Brain &cpy);
+		Brain(Brain const &cpy);
 		Brain	operator=(const Brain &equal);
 		Brain(void);
-		~Brain();
+		virtual ~Brain();
 		virtual	void	print_ideas(void) const;
 };
 

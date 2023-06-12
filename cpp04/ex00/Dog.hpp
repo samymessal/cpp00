@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:04:14 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/20 17:49:02 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:55:34 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ class	Dog :public Animal
 	public:
 		Dog(void);
 		Dog(std::string in_type);
-		~Dog(void);
-		virtual	void	makeSound(void) const;
+		Dog(const Dog &other);
+		Dog	&operator=(const Dog &other);
+		virtual ~Dog(void);
+		virtual void	makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:30:26 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/20 18:07:47 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:09:08 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	return ;
+}
+
+Cat::Cat(const Cat &other) : Animal(other)
+{
+	std::cout << "Cat copy constructor called" << std::endl;
+	return ;
+}
+
+Cat	&Cat::operator=(const Cat &other)
+{
+	Animal::operator=(other);
+	std::cout << "Cat assignment overload called" << std::endl;
+	return (*this);
 }
 
 Cat::~Cat(void)

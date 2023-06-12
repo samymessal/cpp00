@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:25:51 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/20 18:25:52 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 18:18:35 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	WrongCat : public WrongAnimal
 		WrongCat(void);
 		WrongCat(std::string in_type);
 		~WrongCat(void);
-		virtual	void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif

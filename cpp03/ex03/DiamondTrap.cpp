@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:38:52 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 16:19:21 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:37:50 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ DiamondTrap::DiamondTrap(std::string init_name) : ScavTrap(init_name + "_clap_na
 	this->_hit = FragTrap::_hit;
 	this->_ener = ScavTrap::_ener;
 	this->_atta = FragTrap::_atta;
+	std::cout << "Scavtrap ener normally is 50: " << this->_ener << std::endl;
 	std::cout << "DiamondTrap constructor initialized name" << std::endl;
     return ;
 }
