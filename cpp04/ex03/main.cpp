@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 18:24:55 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/15 15:35:01 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/15 19:52:22 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/15 20:07:27 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_HPP
-# define Cat_HPP
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Brain;
-class	Cat : public Animal
+int	main(void)
 {
-	private:
-		Brain	*mybrain;
-	public:
-		Cat(void);
-		Cat(std::string in_type);
-		Cat(const Cat &other);
-		Cat	&operator=(const Cat &other);
-		virtual ~Cat(void);
-		virtual	void	makeSound(void) const;
-		virtual void	print_ideas(void) const;
-};
-
-#endif
+	Ice *test = new Ice();
+	Character player("samy");
+	std::cout << test->getType() << std::endl;
+	player.equip(test);
+	player.unequip(0);
+	delete test;
+}

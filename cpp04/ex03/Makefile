@@ -5,15 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/22 16:51:05 by smessal           #+#    #+#              #
-#    Updated: 2023/06/13 12:24:00 by smessal          ###   ########.fr        #
+#    Created: 2023/06/15 18:18:48 by smessal           #+#    #+#              #
+#    Updated: 2023/06/15 20:08:27 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	AAnimal
+NAME		=	IceCure
 
-SRC			=	Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp \
-				Brain.cpp main.cpp \
+SRC			=	Ice.cpp Cure.cpp AMateria.cpp Character.cpp ICharacter.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -21,10 +20,9 @@ COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o AAnimal
+EXE_NAME	=	-o IceCure
 
-EXEC		=	AAnimal
-
+EXEC		=	IceCure
 
 all: $(NAME)
 

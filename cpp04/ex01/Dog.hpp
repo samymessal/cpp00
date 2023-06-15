@@ -13,8 +13,8 @@
 #ifndef Dog_HPP
 # define Dog_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 class Brain;
 class	Dog :public Animal

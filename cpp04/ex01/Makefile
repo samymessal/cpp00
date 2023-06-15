@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 18:25:28 by smessal           #+#    #+#              #
-#    Updated: 2023/04/22 16:54:52 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/13 12:23:53 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC			=	Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp \
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	g++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

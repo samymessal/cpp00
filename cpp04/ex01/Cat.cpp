@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:24:49 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 18:38:08 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/15 16:13:03 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,23 @@ Cat::Cat(const Cat &other) : Animal(other)
 
 Cat	&Cat::operator=(const Cat &other)
 {
-	Brain	*temp = new Brain(*other.mybrain);
-	Animal::operator=(other);
 	if (this != &other)
+	{
+		Brain	*temp = new Brain(*other.mybrain);
+		Animal::operator=(other);
+		if (mybrain)
+			delete mybrain;
 		this->mybrain = temp;
-	else
-		delete temp;
+	}
 	std::cout << "Cat assignment overload called" << std::endl;
 	return (*this);
 }
 
 Cat::~Cat(void)
 {
-	delete mybrain;
 	std::cout << "Cat default destructor called" << std::endl;
+	if (mybrain)
+		delete mybrain;
 	return ;
 }
 

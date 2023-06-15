@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 18:24:55 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/15 15:35:01 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/15 17:29:57 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/15 17:35:39 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_HPP
-# define Cat_HPP
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
+#include <iostream>
 
-class Brain;
-class	Cat : public Animal
+class IMateriaSource
 {
-	private:
-		Brain	*mybrain;
 	public:
-		Cat(void);
-		Cat(std::string in_type);
-		Cat(const Cat &other);
-		Cat	&operator=(const Cat &other);
-		virtual ~Cat(void);
-		virtual	void	makeSound(void) const;
-		virtual void	print_ideas(void) const;
+		IMateriaSource(void);
+		IMateriaSource	&operator=(const IMateriaSource &equal);
+		IMateriaSource(const IMateriaSource &cpy);
+		virtual ~IMateriaSource();
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

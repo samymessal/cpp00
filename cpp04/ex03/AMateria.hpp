@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 18:24:55 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/15 15:35:01 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/15 16:40:58 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/15 20:00:56 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_HPP
-# define Cat_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include "ICharacter.hpp"
 
-class Brain;
-class	Cat : public Animal
+class ICharacter;
+
+class AMateria
 {
-	private:
-		Brain	*mybrain;
+	protected:
+		std::string	_type;
 	public:
-		Cat(void);
-		Cat(std::string in_type);
-		Cat(const Cat &other);
-		Cat	&operator=(const Cat &other);
-		virtual ~Cat(void);
-		virtual	void	makeSound(void) const;
-		virtual void	print_ideas(void) const;
+		virtual ~AMateria(void);
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:25:01 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 18:37:26 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/15 16:12:51 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,23 @@ Dog::Dog(const Dog &other) : Animal(other)
 
 Dog	&Dog::operator=(const Dog &other)
 {
-	Brain	*temp = new Brain(*other.mybrain);
-	Animal::operator=(other);
 	if (this != &other)
+	{
+		Animal::operator=(other);
+		Brain	*temp = new Brain(*other.mybrain);
+		if (this->mybrain)
+			delete mybrain;
 		this->mybrain = temp;
-	else
-		delete temp;
+	}
 	std::cout << "Dog assignment overload called" << std::endl;
 	return (*this);
 }
 
 Dog::~Dog(void)
 {
-	delete mybrain;
 	std::cout << "Dog default destructor called" << std::endl;
+	if (mybrain)
+		delete mybrain;
 	return ;
 }
 

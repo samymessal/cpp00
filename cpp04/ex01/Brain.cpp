@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:43:32 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 18:34:34 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/15 15:42:50 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Brain::Brain(void)
 {
+	this->ideas = NULL;
 	this->rand_ideas();
 	std::cout << "Brain default constructor called" << std::endl;
 	return ;
@@ -21,7 +22,8 @@ Brain::Brain(void)
 
 Brain::~Brain(void)
 {
-	delete[] ideas;
+	if (ideas)
+		delete[] ideas;
 	std::cout << "Brain destructor called, ideas freed" << std::endl;
 	return ;
 }
@@ -30,6 +32,8 @@ void	Brain::rand_ideas(void)
 {
 	std::stringstream	num;
 	
+	if (ideas)
+		delete [] ideas;
 	this->ideas = new std::string[100];
 	for (int i = 0; i < 100; i++)
 	{
@@ -42,7 +46,8 @@ void	Brain::rand_ideas(void)
 
 Brain::Brain(const Brain &cpy)
 {
-	this->ideas = new std::string[100];
+	this->ideas = NULL;
+	this->rand_ideas();
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = cpy.ideas[i];
 	std::cout <<"Brain copy constructor called" << std::endl;
@@ -50,11 +55,9 @@ Brain::Brain(const Brain &cpy)
 }
 
 Brain	Brain::operator=(const Brain &equal)
-{
+{	
 	if (this != &equal)
 	{
-		delete[] ideas;
-		this->ideas = new std::string[100];
 		for (int i = 0; i < 100; i++)
 			this->ideas[i] = equal.ideas[i];
 	}
@@ -64,7 +67,10 @@ Brain	Brain::operator=(const Brain &equal)
 
 void	Brain::print_ideas(void) const
 {
-	for (int i = 0; i < 100; i++)
-		std::cout << this->ideas[i] << std::endl;
+	if (ideas)
+	{
+		for (int i = 0; i < 100; i++)
+			std::cout << this->ideas[i] << std::endl;
+	}
 	return ;
 }
