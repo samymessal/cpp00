@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 17:02:45 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 17:02:47 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/11 17:02:55 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/22 17:26:03 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-class Form;
-class Bureaucrat
+class Bureaucrat;
+class AForm
 {
 	private:
 		const std::string	_name;
-		int					_grade;
+		bool				_sign;
+		const int			_toSign;
+		const int			_toExec;
 	public:
-		Bureaucrat();
-		Bureaucrat(const std::string name, int grade);
-		~Bureaucrat();
+		AForm();
+		AForm(const std::string name, const int toSign, const int toExec);
+		virtual ~AForm();
+		AForm(const AForm& other);
+		AForm	&operator=(const AForm& other);
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -36,14 +40,22 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
-		Bureaucrat		&operator=(const Bureaucrat &other);
-		Bureaucrat(const Bureaucrat &cpy);
+		class FormNotSigned : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 		const std::string	&getName() const;
-		const int			&getGrade() const;
-		void				promote(int grade);
-		void				downgrade(int grade);
-		void				signForm(Form &form) const;
+		const bool			&getSign() const;
+		const int			&getToSign() const;
+		const int			&getToExec() const;
+		void				setSign(void);
+		void				beSigned(const Bureaucrat &signer);
+		virtual	void		execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream	&operator<<(std::ostream &os, const Bureaucrat &other);
+std::ostream	&operator<<(std::ostream &os, const AForm &other);
+
+
+
 #endif

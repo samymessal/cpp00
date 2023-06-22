@@ -6,15 +6,19 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/11 17:03:08 by smessal           #+#    #+#              #
-#    Updated: 2023/06/22 13:34:05 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/22 17:48:44 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Bureaucrat3
 
-SRC			=	Bureaucrat.cpp Form.cpp main.cpp
+SRC_DIR 	= 	src
+
+SRC			=	$(wildcard $(SRC_DIR)/*.cpp)
 
 OBJS		=	$(SRC:.cpp=.o)
+
+INCLUDES	=  -Iinc
 
 COMPILE		=	c++
 
@@ -28,10 +32,10 @@ EXEC		=	Bureaucrat3
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(COMPILE) $(FLAGS) $(OBJS) $(EXE_NAME)
+	$(COMPILE) $(FLAGS) $(INCLUDES) $(OBJS) $(EXE_NAME)
 
 .cpp.o:
-	${COMPILE} ${FLAGS} -c $< -o ${<:.cpp=.o}
+	${COMPILE} ${FLAGS} $(INCLUDES) -c $< -o ${<:.cpp=.o}
 
 clean:
 	rm -rf $(OBJS)

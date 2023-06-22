@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:02:39 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/11 17:02:42 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/22 17:54:17 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	Bureaucrat::downgrade(int grade)
 	}
 }
 
-void	Bureaucrat::signForm(Form &form) const
+void	Bureaucrat::signForm(AForm &form) const
 {
 	const Bureaucrat&	temp(*this);
 
@@ -89,6 +89,11 @@ void	Bureaucrat::signForm(Form &form) const
 	}
 	else
 		std::cout << "Bureaucrat " << this->getName() << " could not sign form " << form.getName() << " because his grade is too low" << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	form.execute(*this);
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
