@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 15:39:32 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/18 15:39:34 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/12 16:17:54 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/12 16:17:56 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     return ;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+    this->_hit = 100;
+    this->_ener = 50;
+    this->_atta = 20;
+    std::cout << "Copy Scavtrap constructor called" << std::endl;
+    return ;
+}
+
+ScavTrap    &ScavTrap::operator=(const ScavTrap &other)
+{
+    ClapTrap::operator=(other);
+     this->_hit = 100;
+    this->_ener = 50;
+    this->_atta = 20;
+    std::cout << "Assignment Scavtrap operator called" << std::endl;
+    return (*this);
+}
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap default destructor called" << std::endl;
@@ -50,9 +69,9 @@ void    ScavTrap::attack(const std::string& target)
         std::cout << this->_atta << " points of damage !" << std::endl;
         this->_ener -= 1;
     }
-    else if (this->_hit > 0)
+    else if (this->_hit > 0 || this->_ener == 0)
         std::cout << "No energy left, attack not possible" <<std::endl;
-    else if (this->_ener > 0)
-        std::cout << "No pv left, ScavTrap " << this->_name << " is dead" <<std::endl;
+    else if (this->_ener > 0 || this->_hit == 0)
+        std::cout << "No pv left, " << this->_name << " is dead" <<std::endl;
     return ;
 }

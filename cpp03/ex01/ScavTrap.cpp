@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:32:36 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/10 22:38:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:05:11 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,25 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->_atta = 20;
     std::cout << "ScavTrap constructor initialised name" <<std::endl;
     return ;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+    this->_hit = 100;
+    this->_ener = 50;
+    this->_atta = 20;
+    std::cout << "Copy Scavtrap constructor called" << std::endl;
+    return ;
+}
+
+ScavTrap    &ScavTrap::operator=(const ScavTrap &other)
+{
+    ClapTrap::operator=(other);
+     this->_hit = 100;
+    this->_ener = 50;
+    this->_atta = 20;
+    std::cout << "Assignment Scavtrap operator called" << std::endl;
+    return (*this);
 }
 
 ScavTrap::~ScavTrap()

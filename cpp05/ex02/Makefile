@@ -6,7 +6,7 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/11 17:03:08 by smessal           #+#    #+#              #
-#    Updated: 2023/06/11 17:05:20 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/22 13:34:05 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC			=	Bureaucrat.cpp Form.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	g++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

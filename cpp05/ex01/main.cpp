@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 19:37:19 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/10 21:54:12 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/22 13:37:42 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(void)
 	try
 	{
 		Form	form("send", 86, 80);
-		Bureaucrat	chief("chief", 150);
+		Bureaucrat	chief("chief", 1);
 		chief.signForm(form);
-		form.beSigned(chief);
+		// form.beSigned(chief);
 		std::cout << form << std::endl;
 	}
 	catch(const std::exception& e)

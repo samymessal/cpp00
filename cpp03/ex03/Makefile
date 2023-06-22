@@ -16,7 +16,7 @@ SRC			=	ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
-COMPILE		=	g++
+COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 

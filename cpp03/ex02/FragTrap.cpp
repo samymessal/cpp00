@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:32:36 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 21:35:10 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:10:53 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,25 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->_atta = 30;
     std::cout << "FragTrap constructor initialised name" <<std::endl;
     return ;
+}
+
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
+{
+    this->_hit = 100;
+    this->_ener = 100;
+    this->_atta = 30;
+    std::cout << "Copy FragTrap constructor called" << std::endl;
+    return ;
+}
+
+FragTrap    &FragTrap::operator=(const FragTrap &other)
+{
+    ClapTrap::operator=(other);
+     this->_hit = 100;
+    this->_ener = 100;
+    this->_atta = 30;
+    std::cout << "Assignment FragTrap operator called" << std::endl;
+    return (*this);
 }
 
 FragTrap::~FragTrap()

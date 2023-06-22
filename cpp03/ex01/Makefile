@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:21:32 by smessal           #+#    #+#              #
-#    Updated: 2023/06/05 22:29:14 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/12 15:54:31 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ScapTrap
+NAME		=	ScavTrap
 
-SRC			=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC			=	ClapTrap.cpp ScavTrap.cpp main.cpp 
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -20,9 +20,9 @@ COMPILE		=	c++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o ScapTrap
+EXE_NAME	=	-o ScavTrap
 
-EXEC		=	ScapTrap
+EXEC		=	ScavTrap
 
 
 all: $(NAME)

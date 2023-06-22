@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:52:23 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 21:20:03 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:09:47 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap
         ClapTrap(std::string nom);
         ClapTrap(const ClapTrap &other);
         ClapTrap operator=(const ClapTrap &equal);
-        ~ClapTrap(void);
+        virtual ~ClapTrap(void);
         virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

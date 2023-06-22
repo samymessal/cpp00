@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:23:49 by smessal           #+#    #+#             */
-/*   Updated: 2023/04/16 21:32:55 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:10:19 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class FragTrap : public ClapTrap
     public:
         FragTrap();
         FragTrap(std::string name);
-        ~FragTrap();
+        FragTrap(const FragTrap &other);
+        FragTrap    &operator=(const FragTrap &other);
+        virtual ~FragTrap();
         void    highFiveGuys(void) const;
 };
 
