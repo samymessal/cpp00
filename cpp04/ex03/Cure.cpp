@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:25:47 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/15 20:05:24 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/22 12:17:22 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Cure::Cure(const Cure &cpy)
 
 Cure::~Cure()
 {
-	std::cout << "Default constructor Cure called" << std::endl;
+	std::cout << "Default destructor Cure called" << std::endl;
 }
 
 AMateria*	Cure::clone() const

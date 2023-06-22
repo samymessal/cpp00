@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 16:40:58 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/22 10:56:42 by smessal          ###   ########.fr       */
+/*   Created: 2023/06/22 11:29:35 by smessal           #+#    #+#             */
+/*   Updated: 2023/06/22 11:31:30 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+#include "IMateriaSource.hpp"
 
-#include <iostream>
-#include "ICharacter.hpp"
-
-class ICharacter;
-
-class AMateria
+IMateriaSource::~IMateriaSource(void)
 {
-	protected:
-		std::string	_type;
-	public:
-		virtual ~AMateria(void);
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
-};
-
-#endif
+	std::cout << "Default IMateriaSource destructor called" << std::endl;
+}

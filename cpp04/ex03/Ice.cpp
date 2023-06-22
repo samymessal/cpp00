@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:22:41 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/15 20:05:17 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/22 12:17:09 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Ice::Ice(const Ice &cpy)
 
 Ice::~Ice()
 {
-	std::cout << "Default constructor Ice called" << std::endl;
+	std::cout << "Default destructor Ice called" << std::endl;
 }
 
 AMateria*	Ice::clone() const

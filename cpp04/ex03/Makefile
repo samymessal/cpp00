@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/15 18:18:48 by smessal           #+#    #+#              #
-#    Updated: 2023/06/15 20:08:27 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/22 12:14:13 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	IceCure
 
-SRC			=	Ice.cpp Cure.cpp AMateria.cpp Character.cpp ICharacter.cpp main.cpp
+SRC			=	Ice.cpp Cure.cpp AMateria.cpp Character.cpp ICharacter.cpp MateriaSource.cpp IMateriaSource.cpp main.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
