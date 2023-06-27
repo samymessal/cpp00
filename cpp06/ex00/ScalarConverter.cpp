@@ -72,21 +72,21 @@ void	ScalarConverter::printer(int intVal) const
 	std::cout << "double: " << static_cast<double>(intVal) << std::endl;
 }
 
-void	ScalarConverter::printer(float fVal) const
-{
-	std::cout << "char: ";
-	if (fVal >= 32.0f && fVal <= 126.0f)
-		std::cout << static_cast<char>(fVal) << std::endl;
-	else
-		std::cout << "impossible" << std::endl;
-	std::cout << "int: ";
-	if (fVal <= static_cast<float>(std::numeric_limits<int>::max()) && fVal >= static_cast<float>(std::numeric_limits<int>::min()))
-		std::cout << static_cast<int>(fVal) << std::endl;
-	else
-		std::cout << "impossible" << std::endl;
-	std::cout << "float: " << fVal << "f"<< std::endl;
-	std::cout << "double: " << static_cast<double>(fVal) << std::endl;
-}
+// void	ScalarConverter::printer(float fVal) const
+// {
+// 	std::cout << "char: ";
+// 	if (fVal >= 32.0f && fVal <= 126.0f)
+// 		std::cout << static_cast<char>(fVal) << std::endl;
+// 	else
+// 		std::cout << "impossible" << std::endl;
+// 	std::cout << "int: ";
+// 	if (fVal <= static_cast<float>(std::numeric_limits<int>::max()) && fVal >= static_cast<float>(std::numeric_limits<int>::min()))
+// 		std::cout << static_cast<int>(fVal) << std::endl;
+// 	else
+// 		std::cout << "impossible" << std::endl;
+// 	std::cout << "float: " << fVal << "f"<< std::endl;
+// 	std::cout << "double: " << static_cast<double>(fVal) << std::endl;
+// }
 
 void	ScalarConverter::printer(double dVal) const
 {
@@ -101,7 +101,7 @@ void	ScalarConverter::printer(double dVal) const
 	else
 		std::cout << "impossible" << std::endl;
 	std::cout << "float: ";
-	if (dVal <= static_cast<double>(std::numeric_limits<float>::max()) && dVal >= static_cast<double>(std::numeric_limits<float>::min()))
+	if (dVal <= static_cast<double>(std::numeric_limits<float>::max()) && dVal >= static_cast<double>(-std::numeric_limits<float>::max()))
 		std::cout << static_cast<double>(dVal) << "f"<< std::endl;
 	else
 		std::cout << "impossible" << std::endl;
@@ -144,7 +144,7 @@ void	ScalarConverter::convert(const std::string &toconv) const
 	else if (type == 2)
 	{
 		iss >> dVal;
-		if (dVal > std::numeric_limits<float>::max() || dVal < std::numeric_limits<float>::min())
+		if (dVal > std::numeric_limits<float>::max() || dVal < -std::numeric_limits<float>::max())
 			printer("impos");
 		else
 			printer(dVal);
@@ -152,8 +152,10 @@ void	ScalarConverter::convert(const std::string &toconv) const
 	else if (type == 3)
 	{
 		iss >> dVal;
-		if (dVal > std::numeric_limits<double>::max() || dVal < std::numeric_limits<double>::min())
+		if (dVal > std::numeric_limits<double>::max() || dVal < -std::numeric_limits<double>::max())
+		{
 			printer("impos");
+		}
 		else
 			printer(dVal);
 	}

@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:52:07 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/27 16:51:29 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/27 17:52:27 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include "C.hpp"
 #include <cstdlib>
 #include <iostream>
-typedef void	(Base::*ptr)(void) const;
+#include <ctime>
+
 Base	*generate(void);
 void	identify(Base* p);
 void	identify(Base& p);

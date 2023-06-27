@@ -6,13 +6,13 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 15:48:10 by smessal           #+#    #+#              #
-#    Updated: 2023/06/27 15:48:12 by smessal          ###   ########.fr        #
+#    Updated: 2023/06/27 18:00:06 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Identity
 
-SRC			=	Identity.cpp main.cpp 
+SRC			=	Base.cpp functions.cpp main.cpp 
 
 OBJS		=	$(SRC:.cpp=.o)
 
