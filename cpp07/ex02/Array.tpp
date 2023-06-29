@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:46:48 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/29 16:36:39 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/29 16:54:12 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // Constructors
 template <typename T>
 
-Array<T>::Array() : my_arr(new T[0]), _size(0)
+Array<T>::Array() : my_arr(NULL), _size(0) // my_arr(T[0])
 {
 	std::cout << "\e[0;33mDefault Constructor called of Array\e[0m" << std::endl;
 }
@@ -30,6 +30,8 @@ Array<T>::Array(unsigned int size) : my_arr(new T[size]), _size(size)
 template <typename T>
 Array<T>::Array(const Array &copy)
 {
+	my_arr = NULL;
+	_size = 0;
 	*this = copy;
 	std::cout << "\e[0;33mCopy Constructor called of Array\e[0m" << std::endl;
 }
@@ -51,7 +53,8 @@ Array<T> & Array<T>::operator=(const Array &assign)
 	if (this != &assign)
 	{
 		_size = assign._size;
-		delete[] my_arr;
+		if (my_arr)
+			delete[] my_arr;
 		this->my_arr = new T[assign._size];
 		for (unsigned int i = 0; i < assign._size; i++)
 			my_arr[i] = assign.my_arr[i];
