@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 15:46:48 by smessal           #+#    #+#             */
-/*   Updated: 2023/06/29 16:54:12 by smessal          ###   ########.fr       */
+/*   Updated: 2023/06/29 16:57:19 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // Constructors
 template <typename T>
 
-Array<T>::Array() : my_arr(NULL), _size(0) // my_arr(T[0])
+Array<T>::Array() : my_arr(new T[0]), _size(0) // or my_arr=NULL
 {
 	std::cout << "\e[0;33mDefault Constructor called of Array\e[0m" << std::endl;
 }

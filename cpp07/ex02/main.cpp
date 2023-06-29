@@ -54,18 +54,28 @@
 //     return 0;
 // }
 
-// int main()
-// {
-//     Array<int> test(10);
-//     Array<int> test2(test);
+int main()
+{
+    // Array<int> test(10);
+    // Array<int> test2(test);
 
-//     std::cout << test.size() << std::endl;
-//     // test2 = test;
-//     for (int i = 0; i < 10; i++)
-//         test2[i] = 0;
-//     std::cout << test2[2] << std::endl;
-//     test2[2] = 20;
-//     std::cout << test2[2] << std::endl;
+    // std::cout << test.size() << std::endl;
+    // // test2 = test;
+    // for (int i = 0; i < 10; i++)
+    //     test2[i] = 0;
+    // std::cout << test2[2] << std::endl;
+    // test2[2] = 20;
+    // std::cout << test2[2] << std::endl;
 
+    Array<int> test;
 
-// }
+    try
+    {
+        test[0] = 1;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+}
