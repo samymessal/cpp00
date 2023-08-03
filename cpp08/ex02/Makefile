@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/06 10:56:22 by smessal           #+#    #+#              #
-#    Updated: 2023/08/03 12:52:31 by smessal          ###   ########.fr        #
+#    Created: 2023/08/03 14:22:51 by smessal           #+#    #+#              #
+#    Updated: 2023/08/03 14:23:01 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC      := main.cpp Span.cpp
+SRC      := main.cpp
 
 OBJS     := $(SRC:.cpp=.o)
 
@@ -18,7 +18,7 @@ COMPILE  := c++
 
 FLAGS    := -Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME := Span
+EXE_NAME := Mutant
 
 EXEC     := ./$(EXE_NAME)
 

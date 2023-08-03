@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 12:24:33 by smessal           #+#    #+#             */
-/*   Updated: 2023/07/06 12:37:21 by smessal          ###   ########.fr       */
+/*   Updated: 2023/08/03 14:01:55 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ const char	*Span::MaxSize::what() const throw()
 	return "Already at max size of Span class"; 	
 }
 
+const char	*Span::Empty::what() const throw()
+{
+	return "Not enough values in Span class"; 	
+}
+
+const char	*Span::BadType::what() const throw()
+{
+	return "Container must contain integers to add on Span class"; 	
+}
+
 void	Span::addNumber(const int &toadd)
 {
 	if (_vec.size() < _max)
@@ -57,3 +67,45 @@ void	Span::addNumber(const int &toadd)
 		throw Span::MaxSize();
 }
 
+unsigned int	Span::shortestSpan() const
+{
+	if (_vec.size() <= 1)
+		throw Span::Empty();
+	std::vector<int>	sorted = _vec;
+	std::sort(sorted.begin(), sorted.end());
+	unsigned int		shortest = _max;
+	
+	for (unsigned int i = 0; i < sorted.size(); i++)
+	{
+		if (i + 1 < sorted.size())
+		{
+			if (static_cast<unsigned int>(sorted[i + 1] - sorted[i]) < shortest)
+				shortest = sorted[i + 1] - sorted[i];
+		}
+	}
+	return shortest;
+}
+
+unsigned int	Span::longestSpan() const
+{
+	if (_vec.size() <= 1)
+		throw Span::Empty();
+	std::vector<int>	sorted = _vec;
+	std::sort(sorted.begin(), sorted.end());
+	unsigned int		longest = sorted.back() - sorted.front();
+	// if (longest < sorted.front())
+	// 	throw Span::Overflow();
+	return longest;
+}
+
+void	Span::addArr(int start, int end)
+{
+	unsigned int	check = static_cast<unsigned int>(end - start);
+	if (_vec.size() + check > _max && start < end)
+		throw Span::MaxSize();
+	while (start <= end)
+	{
+		addNumber(start);
+		start++;
+	}
+}
