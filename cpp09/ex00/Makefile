@@ -6,11 +6,11 @@
 #    By: smessal <smessal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/05 13:57:44 by smessal           #+#    #+#              #
-#    Updated: 2023/08/05 13:57:46 by smessal          ###   ########.fr        #
+#    Updated: 2023/08/05 17:00:52 by smessal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC      := main.cpp
+SRC      := main.cpp BitcoinExchange.cpp
 
 OBJS     := $(SRC:.cpp=.o)
 

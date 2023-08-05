@@ -11,7 +11,7 @@ class BitcoinExchange
 {
 	public:
 		// Constructors
-		BitcoinExchange();
+		BitcoinExchange(const char *filepath);
 		BitcoinExchange(const BitcoinExchange &copy);
 		
 		// Destructor
@@ -30,9 +30,18 @@ class BitcoinExchange
 		class ErrFile : public std::exception {
 			virtual const char* what() const throw();
 		};
-		
+		void	printer() const;
+		void	print_input(const char *input);
 	private:
+		std::ifstream	data;
+		std::map<std::string, float>	pars_data(std::ifstream &data);	
+		bool	check_date(std::string date);
+		float	check_value(std::string value);
+		float	check_value_inp(std::string value);
+		std::map<std::string, float>	btc_map;
+		void	pars_input(std::ifstream &data);
 		
 };
+
 
 #endif
