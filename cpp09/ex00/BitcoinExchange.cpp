@@ -6,26 +6,31 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:06:03 by smessal           #+#    #+#             */
-/*   Updated: 2023/08/05 18:21:58 by smessal          ###   ########.fr       */
+/*   Updated: 2023/08/07 11:55:24 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 // Constructors
+BitcoinExchange::BitcoinExchange()
+{
+	return ;
+}
+
 BitcoinExchange::BitcoinExchange(const char *filepath)
 {
+	std::ifstream	data;
 	data.open(filepath);
 	if (!data.is_open())
 		throw BitcoinExchange::ErrFile();
 	btc_map = pars_data(data);
 	data.close();
-	std::cout << "\e[0;33mDefault Constructor called of BitcoinExchange\e[0m" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
-	(void) copy;
+	btc_map = copy.getmap();
 	std::cout << "\e[0;33mCopy Constructor called of BitcoinExchange\e[0m" << std::endl;
 }
 
@@ -33,14 +38,14 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 // Destructor
 BitcoinExchange::~BitcoinExchange()
 {
-	std::cout << "\e[0;31mDestructor called of BitcoinExchange\e[0m" << std::endl;
+	// std::cout << "\e[0;31mDestructor called of BitcoinExchange\e[0m" << std::endl;
 }
 
 
 // Operators
 BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &assign)
 {
-	(void) assign;
+	btc_map = assign.getmap();
 	return *this;
 }
 
@@ -59,6 +64,11 @@ const char * BitcoinExchange::MissVal::what() const throw()
 const char * BitcoinExchange::ErrFile::what() const throw()
 {
 	return "Error: Could not open file";
+}
+
+std::map<std::string, float>	BitcoinExchange::getmap() const
+{
+	return (btc_map);
 }
 
 bool	BitcoinExchange::check_date(std::string date)
@@ -156,7 +166,9 @@ void	BitcoinExchange::pars_input(std::ifstream &input)
 	std::string	date;
 	std::string	value;
 	float		val;
-	
+	float		match;
+	std::map<std::string, float>::iterator it;
+
 	if (input.is_open())
 	{
 		getline(input, line); //skip first line
@@ -173,7 +185,22 @@ void	BitcoinExchange::pars_input(std::ifstream &input)
 				value = line.substr(separator + 1);
 				val = check_value_inp(value);
 				if (check_date(date) && val >= 0)
-					std::cout << date << " => " << val << " = " << btc_map[date] * val << std::endl;
+				{
+					if (btc_map.find(date) == btc_map.end())
+					{
+						it = btc_map.lower_bound(date);
+						if (it != btc_map.begin())
+						{
+							--it;
+							match = it->second;
+						}
+						else
+							match = 0;
+					}
+					else
+						match = btc_map[date];
+					std::cout << date << " => " << val << " = " << match * val << std::endl;
+				}
 				else if (!check_date(date))
 				{
 					std::cout << "Error: Bad Date" << std::endl;

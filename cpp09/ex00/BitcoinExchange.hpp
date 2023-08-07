@@ -12,6 +12,7 @@ class BitcoinExchange
 	public:
 		// Constructors
 		BitcoinExchange(const char *filepath);
+		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
 		
 		// Destructor
@@ -32,8 +33,8 @@ class BitcoinExchange
 		};
 		void	printer() const;
 		void	print_input(const char *input);
+		std::map<std::string, float>	getmap() const;
 	private:
-		std::ifstream	data;
 		std::map<std::string, float>	pars_data(std::ifstream &data);	
 		bool	check_date(std::string date);
 		float	check_value(std::string value);
