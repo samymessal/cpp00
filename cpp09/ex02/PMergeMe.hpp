@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:13:05 by smessal           #+#    #+#             */
-/*   Updated: 2023/09/18 12:03:59 by smessal          ###   ########.fr       */
+/*   Updated: 2023/09/24 13:56:50 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ class PMergeMe
 		void	execute_algo(std::string);
 	private:
 		size_t		binarysearch(int value);
+		void		merge_vec(int left, int mid, int right);
+		void		mergeSort_vec();
+		void		merge_deq(int left, int mid, int right);
+		void		mergeSort_deq();
 		void		insert_sort();
 		size_t		binarysearch_deq(int value);
 		void		insert_sort_deq();

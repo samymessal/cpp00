@@ -6,7 +6,7 @@
 /*   By: smessal <smessal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:13:00 by smessal           #+#    #+#             */
-/*   Updated: 2023/09/18 12:11:35 by smessal          ###   ########.fr       */
+/*   Updated: 2023/09/24 14:26:06 by smessal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,57 @@ void	PMergeMe::get_pairs()
 		}
 		pair_vec.push_back(keep);
 	}
-	std::sort(pair_vec.begin(), pair_vec.end(), comp_pairs);
+	// std::sort(pair_vec.begin(), pair_vec.end(), comp_pairs);
+}
+
+void	PMergeMe::merge_vec(int left, int mid, int right)
+{
+	int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    std::vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; i++)
+        L[i] = pair_vec[left + i].a;
+    for (int j = 0; j < n2; j++)
+        R[j] = pair_vec[mid + 1 + j].a;
+
+    int i = 0, j = 0, k = left;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            pair_vec[k].a = L[i];
+            i++;
+        } else {
+            pair_vec[k].a = R[j];
+            j++;
+        }
+        k++;
+	}
+
+	 while (i < n1) {
+        pair_vec[k].a = L[i];
+        i++;
+        k++;
+    }
+	
+    while (j < n2) {
+        pair_vec[k].a = R[j];
+        j++;
+        k++;
+    }
+}
+
+void	PMergeMe::mergeSort_vec() {
+    int n = pair_vec.size();
+    for (int curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) {
+        for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) {
+            int mid = std::min(left_start + curr_size - 1, n - 1);
+            int right_end = std::min(left_start + 2 * curr_size - 1, n - 1);
+
+            merge_vec(left_start, mid, right_end);
+        }
+    }
 }
 
 void	PMergeMe::get_pairs_deq()
@@ -102,7 +152,57 @@ void	PMergeMe::get_pairs_deq()
 		}
 		pair_deq.push_back(keep);
 	}
-	std::sort(pair_deq.begin(), pair_deq.end(), comp_pairs);
+	// std::sort(pair_deq.begin(), pair_deq.end(), comp_pairs);
+}
+
+void	PMergeMe::merge_deq(int left, int mid, int right)
+{
+	int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    std::vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; i++)
+        L[i] = pair_deq[left + i].a;
+    for (int j = 0; j < n2; j++)
+        R[j] = pair_deq[mid + 1 + j].a;
+
+    int i = 0, j = 0, k = left;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            pair_deq[k].a = L[i];
+            i++;
+        } else {
+            pair_deq[k].a = R[j];
+            j++;
+        }
+        k++;
+	}
+
+	 while (i < n1) {
+        pair_deq[k].a = L[i];
+        i++;
+        k++;
+    }
+	
+    while (j < n2) {
+        pair_deq[k].a = R[j];
+        j++;
+        k++;
+    }
+}
+
+void	PMergeMe::mergeSort_deq() {
+    int n = pair_deq.size();
+    for (int curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) {
+        for (int left_start = 0; left_start < n - 1; left_start += 2 * curr_size) {
+            int mid = std::min(left_start + curr_size - 1, n - 1);
+            int right_end = std::min(left_start + 2 * curr_size - 1, n - 1);
+
+            merge_deq(left_start, mid, right_end);
+        }
+    }
 }
 
 size_t	PMergeMe::binarysearch(int value)
@@ -196,11 +296,13 @@ void	PMergeMe::execute_algo(std::string contain)
 	if (contain == "vector")
 	{
 		get_pairs();
+		mergeSort_vec();
 		insert_sort();
 	}
 	else if (contain == "deque")
 	{
 		get_pairs_deq();
+		mergeSort_deq();
 		insert_sort_deq();
 	}
 	else
